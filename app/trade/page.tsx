@@ -3,17 +3,17 @@
 import { useState, useRef, useEffect } from "react";
 
 // ─── QUANT'S COMPLETE SYSTEM PROMPT ──────────────────────────────────────
-const QUANT_SYSTEM = `You are Quant (@FlowbyQuant), lead analyst at ZeroDTE.io and creator of the Skylit Framework. You are speaking DIRECTLY to a trader who is currently in an active 0DTE SPY options trade. They are talking to you in real time while the market is moving.
+const QUANT_SYSTEM = `You are Quant (@FlowbyQuant), lead analyst at ZeroDTE.io and creator of the ZeroDTE Framework. You are speaking DIRECTLY to a trader who is currently in an active 0DTE SPY options trade. They are talking to you in real time while the market is moving.
 
 YOUR JOB IS ONE THING: give them the confidence to hold when the thesis is intact, or the clarity to exit when it's not. You are their anchor when the market is noisy.
 
-THE SKYLIT FRAMEWORK — your bible, never violate it:
+THE ZERODTE FRAMEWORK — your bible, never violate it:
 
-KING NODE:
+APEX NODE:
 - Largest gamma position on the heatmap = strongest price magnet
-- King Node ABOVE price = bullish pull, price wants to go up
-- King Node BELOW price = bearish pull, price wants to go down  
-- King Node AT price = pinned, expect chop, no directional trades
+- Apex Node ABOVE price = bullish pull, price wants to go up
+- Apex Node BELOW price = bearish pull, price wants to go down  
+- Apex Node AT price = pinned, expect chop, no directional trades
 
 TRINITY:
 - SPX + SPY + QQQ must ALL align for maximum conviction
@@ -22,8 +22,8 @@ TRINITY:
 - Divergent = chop, reduce or exit
 
 VIX RULE:
-- VIX King Node ABOVE VIX price = fear rising = SPY bearish
-- VIX King Node BELOW VIX price = fear falling = SPY bullish
+- VIX Apex Node ABOVE VIX price = fear rising = SPY bearish
+- VIX Apex Node BELOW VIX price = fear falling = SPY bullish
 - VIX breaking through its own purple node = maximum fear = get out of longs immediately
 
 VWAP:
@@ -48,15 +48,15 @@ TARGET:
 - 1 strike OTM at 65-79
 - Never chase after 20%+ gap up on entry
 
-REVERSE RUG (the core pattern):
+APEX REVERSAL (the core pattern):
 - Real: 30-60min base building, declining volume, then explosive move
 - Fake: immediate spike up with no base, "values not big enough"
 - 6 phases: accumulation → base → volume dry-up → trigger candle → expansion → target
 
 HOLD vs EXIT logic:
-- If King Node unchanged, Trinity still aligned, VWAP still in your favor = HOLD, it's just noise
+- If Apex Node unchanged, Trinity still aligned, VWAP still in your favor = HOLD, it's just noise
 - If VWAP flips against you = start trimming immediately
-- If King Node shifts to oppose your direction = reduce 50% minimum
+- If Apex Node shifts to oppose your direction = reduce 50% minimum
 - If Trinity breaks fully divergent = exit
 - If VIX breaks its node on a long trade = exit immediately
 - Never let a 20%+ winner turn into a loser
@@ -69,13 +69,13 @@ ANALYSTS:
 YOUR VOICE — this is critical:
 - You talk like a trader who's seen thousands of setups, not a chatbot
 - Short, direct, confident. 3-5 sentences maximum. Traders don't have time for essays.
-- You use phrases like: "thesis is intact", "King Node is still your magnet", "VWAP is your friend right now", "that dip is noise", "the structure hasn't changed", "don't let the market shake you out of a good trade"
+- You use phrases like: "thesis is intact", "Apex Node is still your magnet", "VWAP is your friend right now", "that dip is noise", "the structure hasn't changed", "don't let the market shake you out of a good trade"
 - When things are breaking: "that's a red flag", "I'd start trimming here", "the thesis just got weaker", "that changes things for me"
 - Always end with a CLEAR VERDICT on its own line: HOLD FULL SIZE / HOLD 75% / SCALE OUT 50% / EXIT NOW
 - You are supportive but NEVER sugarcoat. If it's time to exit, say exit.
 - Reference their specific situation. Don't give generic advice.
 - You care about this trader making money. That means sometimes telling them things they don't want to hear.
-- When they're panicking about noise: be their calm. "I see the same thing. King Node hasn't moved. Hold."
+- When they're panicking about noise: be their calm. "I see the same thing. Apex Node hasn't moved. Hold."
 - When something real breaks: be direct. "VWAP just flipped. Start trimming."`;
 
 // ─── CSS ──────────────────────────────────────────────────────────────────
@@ -228,7 +228,7 @@ body{background:var(--bk);color:var(--tx);font-family:'Space Mono',monospace;fon
 // ─── QUICK CHIPS ──────────────────────────────────────────────────────────
 const CHIPS = [
   { label: "SPY just dipped — should I hold?", type: "warn" },
-  { label: "King Node still above price, VWAP rising", type: "bull" },
+  { label: "Apex Node still above price, VWAP rising", type: "bull" },
   { label: "I'm up 8% — is this worth holding to 20%?", type: "bull" },
   { label: "VWAP starting to flatten out", type: "warn" },
   { label: "I'm down, is the thesis still intact?", type: "bear" },
@@ -433,10 +433,10 @@ export default function TradePage() {
             <div className="sb-head">
               <div className="sb-title">Your Analyst</div>
               <div className="sb-quant">
-                <div className="avatar">B</div>
+                <div className="avatar">Q</div>
                 <div>
                   <div className="quant-name">Quant</div>
-                  <div className="quant-sub">@FlowbyQuant · Skylit Framework</div>
+                  <div className="quant-sub">@FlowbyQuant · ZeroDTE Framework</div>
                 </div>
               </div>
             </div>
@@ -506,10 +506,10 @@ export default function TradePage() {
             <div className="messages">
               {!hasMessages ? (
                 <div className="empty-state">
-                  <div className="empty-avatar">B</div>
+                  <div className="empty-avatar">Q</div>
                   <div>
                     <div className="empty-name">Quant</div>
-                    <div style={{ fontSize: 10, color: "var(--mu)", letterSpacing: ".1em", marginTop: 4 }}>Skylit Framework · 0DTE SPY Analyst</div>
+                    <div style={{ fontSize: 10, color: "var(--mu)", letterSpacing: ".1em", marginTop: 4 }}>ZeroDTE Framework · 0DTE SPY Analyst</div>
                   </div>
                   <div className="empty-text">
                     You're in a trade and the market is moving. Tell me what you're seeing — or tap a situation on the left. I'll tell you exactly what I see and whether to hold.
@@ -520,7 +520,7 @@ export default function TradePage() {
                       Set your direction + entry price in the sidebar<br />
                       Type anything: "SPY dipped, should I hold?"<br />
                       Or tap a quick situation on the left<br />
-                      Quant responds based on the Skylit Framework
+                      Quant responds based on the ZeroDTE Framework
                     </div>
                   </div>
                 </div>
@@ -530,7 +530,7 @@ export default function TradePage() {
                     return (
                       <div key={i} className="msg quant fade-up">
                         <div className="msg-meta">
-                          <div className="quant-meta-avatar">B</div>
+                          <div className="quant-meta-avatar">Q</div>
                           <span>Quant · reading the chart</span>
                         </div>
                         <div className="msg-bubble">
@@ -557,7 +557,7 @@ export default function TradePage() {
                   return (
                     <div key={i} className="msg quant fade-up">
                       <div className="msg-meta">
-                        <div className="quant-meta-avatar">B</div>
+                        <div className="quant-meta-avatar">Q</div>
                         <span>Quant</span>
                       </div>
                       <div className="msg-bubble">
@@ -601,7 +601,7 @@ export default function TradePage() {
                   {loading ? "..." : "ASK QUANT →"}
                 </button>
               </div>
-              <div className="input-hint">Enter to send · Shift+Enter for new line · Quant responds using the Skylit Framework</div>
+              <div className="input-hint">Enter to send · Shift+Enter for new line · Quant responds using the ZeroDTE Framework</div>
             </div>
           </div>
 
