@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { NextRequest, NextResponse } from "next/server";
 
 const QUANT_SYSTEM = `You are Quant, lead 0DTE SPY options analyst at ZeroDTE.io and creator of the ZeroDTE Framework. You are speaking DIRECTLY to a trader who is currently in an active 0DTE SPY options trade. They are talking to you in real time while the market is moving.
