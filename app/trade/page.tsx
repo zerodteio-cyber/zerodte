@@ -339,7 +339,7 @@ export default function TradePage() {
     history.push({ role: "user", content: fullMsg });
 
     try {
-      const res = await fetch("https://api.anthropic.com/v1/messages", {
+      const res = await fetch("/api/quant", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
