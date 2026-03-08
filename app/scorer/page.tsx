@@ -126,6 +126,50 @@ function calcScore(dir: "bull"|"bear", inp: any, pat: any) {
   else if (inp.analyst==="conflict"){ total-=10; rows.push({l:"Analyst Consensus",v:"Quant/Giul conflict -10",pts:-10}); blocked.push("Quant vs Giul conflict = NO TRADE until resolved."); }
   else { rows.push({l:"Analyst Consensus",v:"No data",pts:0}); }
 
+  // 10. Economic Event Catalyst
+  const ev = inp.econ_event;
+  const bearishEv = ["gdp_bad","cpi_hot","fed_hike","fed_hawk","nfp_weak","retail_bad","ppi_hot"];
+  const bullishEv = ["gdp_good","cpi_cool","fed_cut","fed_dove","retail_strong"];
+  const strongEv = ["fed_hike","fed_cut","gdp_bad","gdp_good"];
+  const isBearC = bearishEv.includes(ev);
+  const isBullC = bullishEv.includes(ev);
+  const isStrong = strongEv.includes(ev);
+  if (ev !== "none" && ev !== "fomc_pending" && ev !== "event_pending") {
+    if (isBearC) {
+      if (dir==="bear") {
+        const b = isStrong?15:10; total+=b;
+        rows.push({l:"Econ Catalyst",v:"BEARISH EVENT — puts confirmed",pts:b});
+        rules.push("✅ Econ catalyst: "+ev.replace(/_/g," ").toUpperCase()+" → bearish bias. +"+b+" pts.");
+      } else {
+        const p = isStrong?-15:-10; total+=p;
+        rows.push({l:"Econ Catalyst",v:"BEARISH EVENT — fights longs",pts:p});
+        if (isStrong) blocked.push("Strong bearish econ catalyst active. Calls fighting macro headwind.");
+        else rules.push("⚠️ Bearish econ catalyst. "+p+" on calls.");
+      }
+    } else if (isBullC) {
+      if (dir==="bull") {
+        const b = isStrong?15:10; total+=b;
+        rows.push({l:"Econ Catalyst",v:"BULLISH EVENT — calls confirmed",pts:b});
+        rules.push("✅ Econ catalyst: "+ev.replace(/_/g," ").toUpperCase()+" → bullish bias. +"+b+" pts.");
+      } else {
+        const p = isStrong?-15:-10; total+=p;
+        rows.push({l:"Econ Catalyst",v:"BULLISH EVENT — fights puts",pts:p});
+        if (isStrong) blocked.push("Strong bullish econ catalyst active. Puts fighting macro tailwind.");
+        else rules.push("⚠️ Bullish econ catalyst. "+p+" on puts.");
+      }
+    }
+    if ((isBearC||isBullC) && isStrong && inp.tod==="open") {
+      total+=10;
+      rules.push("⚡ Strong econ catalyst at open — partial pre-10AM override. Still caution.");
+    }
+  } else if (ev==="fomc_pending"||ev==="event_pending") {
+    total-=10;
+    rows.push({l:"Econ Catalyst",v:"MAJOR EVENT PENDING",pts:-10});
+    blocked.push("Major economic event pending — reduce size 50%. Expect whipsaw.");
+  } else {
+    rows.push({l:"Econ Catalyst",v:"No major event",pts:0});
+  }
+
   // BONUSES
   if (inp.orb==="bull"&&dir==="bull")       { total+=5;  rules.push("✅ ORB Breakout above ORH confirmed. +5 bonus."); }
   if (inp.orb==="bear"&&dir==="bear")       { total+=5;  rules.push("✅ ORB Breakdown below ORL confirmed. +5 bonus."); }
@@ -358,7 +402,7 @@ export default function ScorerPage() {
           <div>
             <span className="chip"><span className="dot"/>Pattern Intelligence Engine · Dual Scan</span>
             <h1>Both Sides.<br/>Best Edge Wins.</h1>
-            <p className="sub">Scores CALLS and PUTS simultaneously using {BULL_PATTERNS.length + BEAR_PATTERNS.length + NEUT_PATTERNS.length} patterns and 9 factors. No directional bias — the data picks the side.</p>
+            <p className="sub">Scores CALLS and PUTS simultaneously using {BULL_PATTERNS.length + BEAR_PATTERNS.length + NEUT_PATTERNS.length} patterns and 10 factors. No directional bias — the data picks the side.</p>
           </div>
 
           {/* PATTERN LIBRARY */}
@@ -655,7 +699,7 @@ export default function ScorerPage() {
               {/* SCORING WEIGHTS */}
               <div className="wgtcard">
                 <div className="wgt-title">Scoring Weights</div>
-                {[["Alpha Node","20pts"],["Trinity","15pts"],["Pattern","15pts"],["VIX Direction","15pts"],["VWAP","10pts"],["Node Value","10pts"],["Time of Day","10pts"],["Day of Week","5pts"],["Analyst Consensus","5pts"]].map(([k,v])=>(
+                {[["Alpha Node","20pts"],["Trinity","15pts"],["Pattern","15pts"],["VIX Direction","15pts"],["VWAP","10pts"],["Node Value","10pts"],["Time of Day","10pts"],["Day of Week","5pts"],["Analyst Consensus","5pts"],["Econ Catalyst","±15pts"]].map(([k,v])=>(
                   <div key={k} className="wgt-row"><span>{k}</span><span>{v}</span></div>
                 ))}
               </div>
