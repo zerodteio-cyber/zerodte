@@ -285,13 +285,24 @@ export default function Dashboard() {
             ))}
           </div>
           <div style={{ background: "#0f0f0f", border: "1px solid #1a1a1a", padding: 24 }}>
-            <p style={{ color: "#444", fontSize: 11, letterSpacing: 3, marginBottom: 16 }}>ANALYST WATCH</p>
-            {["BOBBY", "GIUL", "GLITCH", "PROPHITCY"].map(name => (
-              <div key={name} style={{ display: "flex", justifyContent: "space-between", padding: "12px 0", borderBottom: "1px solid #1a1a1a" }}>
-                <span style={{ color: "#00ff64", fontSize: 11, letterSpacing: 2 }}>{name}</span>
-                <span style={{ color: "#222", fontSize: 10 }}>monitoring...</span>
-              </div>
-            ))}
+            <p style={{ color: "#444", fontSize: 11, letterSpacing: 3, marginBottom: 16 }}>QUANT ANALYST</p>
+          {quant && (
+            <span style={{ fontSize: 9, fontWeight: 700, letterSpacing: 2, padding: "3px 10px", marginBottom: 4, display: "inline-block",
+              background: quant.biasDir==="bullish"?"rgba(0,255,100,.12)":quant.biasDir==="bearish"?"rgba(255,68,68,.12)":"rgba(100,100,100,.12)",
+              color: quant.biasDir==="bullish"?"#00ff64":quant.biasDir==="bearish"?"#ff4444":"#888" }}>
+              {quant.bias}
+            </span>
+          )}
+            {quantLoading ? (
+              <p style={{ color: "#333", fontSize: 11, fontStyle: "italic", marginTop: 8 }}>Generating intelligence briefing...</p>
+            ) : quant?.summary ? (
+              <>
+                <p style={{ color: "#aaa", fontSize: 11, lineHeight: 1.8, fontStyle: "italic", marginBottom: 14, whiteSpace: "pre-line" }}>{quant.summary}</p>
+                <p style={{ color: "#333", fontSize: 9, letterSpacing: 1 }}>AI BRIEFING · {quant.headlines} headlines · {new Date(quant.generatedAt).toLocaleTimeString("en-US",{hour:"2-digit",minute:"2-digit"})}</p>
+              </>
+            ) : (
+              <p style={{ color: "#333", fontSize: 11 }}>No data available.</p>
+            )}
           </div>
         </div>
 
