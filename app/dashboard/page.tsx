@@ -58,7 +58,7 @@ function analyzeCandles(candles: Candle[], levels: typeof defaultLevels): string
   const distKing = Math.abs(last.close - levels.kingNode);
   const distCall = Math.abs(last.close - levels.callWall);
   const distPut = Math.abs(last.close - levels.putWall);
-  if (distKing < 0.5) insights.push("👑 Price at King Node $" + levels.kingNode + " — major decision point, watch closely");
+  if (distKing < 0.5) insights.push("👑 Price at Alpha Node $" + levels.kingNode + " — major decision point, watch closely");
   if (distCall < 0.5) insights.push("🧱 Price at Call Wall $" + levels.callWall + " — strong resistance, likely rejection");
   if (distPut < 0.5) insights.push("🛡️ Price at Put Wall $" + levels.putWall + " — strong support, bounce possible");
 
@@ -269,7 +269,7 @@ export default function Dashboard() {
           <div style={{ background: "#0f0f0f", border: "1px solid #1a1a1a", padding: 24 }}>
             <p style={{ color: "#444", fontSize: 11, letterSpacing: 3, marginBottom: 16 }}>GEX LEVELS</p>
             {[
-              { label: "KING NODE", value: levels.kingNode, color: "#00ff64" },
+              { label: "ALPHA NODE", value: levels.kingNode, color: "#00ff64" },
               { label: "CALL WALL", value: levels.callWall, color: "#ff4444" },
               { label: "PUT WALL", value: levels.putWall, color: "#4444ff" },
               { label: "HVL", value: levels.hvl, color: "#ffaa00" },

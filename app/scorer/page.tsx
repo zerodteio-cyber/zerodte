@@ -5,8 +5,8 @@ import { useState } from "react";
 // ─── PATTERN LIBRARY ──────────────────────────────────────────────────────
 
 const BULL_PATTERNS = [
-  { id:"hammer", name:"Hammer", pts:18, strength:"HIGH", desc:"Long lower wick, small body at bottom. Sellers tried to break the level and FAILED.", loc:"King Node / Green Support" },
-  { id:"bull_engulf", name:"Bullish Engulfing", pts:17, strength:"HIGH", desc:"Small red candle fully swallowed by large green. Strong reversal.", loc:"Support / King Node" },
+  { id:"hammer", name:"Hammer", pts:18, strength:"HIGH", desc:"Long lower wick, small body at bottom. Sellers tried to break the level and FAILED.", loc:"Alpha Node / Green Support" },
+  { id:"bull_engulf", name:"Bullish Engulfing", pts:17, strength:"HIGH", desc:"Small red candle fully swallowed by large green. Strong reversal.", loc:"Support / Alpha Node" },
   { id:"morning_star", name:"Morning Star", pts:20, strength:"MAX", desc:"3 candles: big red + small doji + big green. Strongest reversal pattern.", loc:"Major Support" },
   { id:"three_soldiers", name:"Three White Soldiers", pts:16, strength:"HIGH", desc:"3 consecutive green candles, higher closes. Magnet walk confirmed.", loc:"Breaking out of base" },
   { id:"piercing", name:"Piercing Line", pts:13, strength:"MEDIUM", desc:"Green candle closes above 50% of prior red. Moderate reversal.", loc:"At Support" },
@@ -56,12 +56,12 @@ function calcScore(dir: "bull"|"bear", inp: any, pat: any) {
   const rules: string[] = [];
   const blocked: string[] = [];
 
-  // 1. King Node (20pts)
+  // 1. Alpha Node (20pts)
   const kn = inp.king_node;
-  if (kn==="above" && dir==="bull")      { total+=20; rows.push({l:"King Node",v:"ABOVE → bullish pull",pts:20}); }
-  else if (kn==="below" && dir==="bear") { total+=20; rows.push({l:"King Node",v:"BELOW → bearish pull",pts:20}); }
-  else if (kn==="at")                    { rows.push({l:"King Node",v:"AT price → pinned",pts:0}); blocked.push("King Node AT price = range-bound chop. Avoid directional trades."); }
-  else                                   { total-=5; rows.push({l:"King Node",v:"Opposing direction",pts:-5}); }
+  if (kn==="above" && dir==="bull")      { total+=20; rows.push({l:"Alpha Node",v:"ABOVE → bullish pull",pts:20}); }
+  else if (kn==="below" && dir==="bear") { total+=20; rows.push({l:"Alpha Node",v:"BELOW → bearish pull",pts:20}); }
+  else if (kn==="at")                    { rows.push({l:"Alpha Node",v:"AT price → pinned",pts:0}); blocked.push("Alpha Node AT price = range-bound chop. Avoid directional trades."); }
+  else                                   { total-=5; rows.push({l:"Alpha Node",v:"Opposing direction",pts:-5}); }
 
   // 2. Trinity (15pts)
   if (inp.trinity==="all3")  { total+=15; rows.push({l:"Trinity",v:"All 3 aligned → MAX",pts:15}); }
@@ -418,7 +418,7 @@ export default function ScorerPage() {
           <div className="card">
             <div className="ct">Market Conditions</div>
             <div className="g2">
-              <div className="fld"><label>King Node</label>
+              <div className="fld"><label>Alpha Node</label>
                 <select className="sel" value={inp.king_node} onChange={e=>set("king_node",e.target.value)}>
                   <option value="above">★ Above Price (Bullish pull)</option>
                   <option value="below">★ Below Price (Bearish pull)</option>
@@ -433,7 +433,7 @@ export default function ScorerPage() {
                   <option value="div">All Divergent (CHOP)</option>
                 </select>
               </div>
-              <div className="fld"><label>VIX King Node</label>
+              <div className="fld"><label>VIX Alpha Node</label>
                 <select className="sel" value={inp.vix_direction} onChange={e=>set("vix_direction",e.target.value)}>
                   <option value="bull">Node Below VIX → SPY Bullish</option>
                   <option value="bear">Node Above VIX → SPY Bearish</option>
@@ -655,7 +655,7 @@ export default function ScorerPage() {
               {/* SCORING WEIGHTS */}
               <div className="wgtcard">
                 <div className="wgt-title">Scoring Weights</div>
-                {[["King Node","20pts"],["Trinity","15pts"],["Pattern","15pts"],["VIX Direction","15pts"],["VWAP","10pts"],["Node Value","10pts"],["Time of Day","10pts"],["Day of Week","5pts"],["Analyst Consensus","5pts"]].map(([k,v])=>(
+                {[["Alpha Node","20pts"],["Trinity","15pts"],["Pattern","15pts"],["VIX Direction","15pts"],["VWAP","10pts"],["Node Value","10pts"],["Time of Day","10pts"],["Day of Week","5pts"],["Analyst Consensus","5pts"]].map(([k,v])=>(
                   <div key={k} className="wgt-row"><span>{k}</span><span>{v}</span></div>
                 ))}
               </div>

@@ -155,7 +155,7 @@ export default function Journal() {
             <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 16, marginBottom: 16 }}>
               {inp("contracts", "CONTRACTS", "number")}
               {inp("trinityScore", "TRINITY SCORE", "number")}
-              {inp("setup", "SETUP", "text", ["KING NODE BOUNCE", "CALL WALL REJECTION", "PUT WALL BOUNCE", "HVL BREAK", "REVERSE RUG", "MOMENTUM CONTINUATION", "OTHER"])}
+              {inp("setup", "SETUP", "text", ["ALPHA NODE BOUNCE", "CALL WALL REJECTION", "PUT WALL BOUNCE", "HVL BREAK", "REVERSE RUG", "MOMENTUM CONTINUATION", "OTHER"])}
               <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
                 <label style={{ fontSize: 10, letterSpacing: 2, color: "#444" }}>CALC P&L</label>
                 <div style={{ padding: "8px 12px", border: "1px solid #1a1a1a", fontSize: 16, fontWeight: 900, color: calcPnl({ ...form, id: "" }) >= 0 ? "#00ff64" : "#ff4444", fontFamily: "Georgia, serif" }}>

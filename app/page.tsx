@@ -228,8 +228,8 @@ export default function Home() {
   const faqs = [
     { q: "What is 0DTE trading and do I need experience?", a: "0DTE (zero days to expiration) options expire the same day they're traded. They offer massive leverage and daily opportunities — but they decay to zero by 4PM. This platform is designed for traders who already understand options basics. It's not an intro course. It's an edge layer on top of knowledge you already have." },
     { q: "What exactly is a GEX heatmap?", a: "GEX = Gamma Exposure. It's calculated as Gamma × Open Interest × 100 × Spot Price, giving the dollar amount of hedging dealers must perform at each strike price. Positive GEX (yellow/green) means dealers buy the dip — creating support. Negative GEX (purple) means dealers sell into weakness — creating acceleration zones." },
-    { q: "What is the King Node?", a: "The King Node (★) is the single largest gamma position in the entire heatmap — the most powerful gravitational force on price for that day. King Node above price = bullish bias. King Node below price = bearish bias. King Node at price = pinned range. Every analysis starts here." },
-    { q: "Is this a signal service? Do you tell me exactly what to trade?", a: "No. This is an intelligence platform. It gives you the AI score, the King Node reading, the analyst consensus, and the full setup context. You make the trade decision. We are not financial advisors. Nothing here is financial advice." },
+    { q: "What is the Alpha Node?", a: "The Alpha Node (★) is the single largest gamma position in the entire heatmap — the most powerful gravitational force on price for that day. Alpha Node above price = bullish bias. Alpha Node below price = bearish bias. Alpha Node at price = pinned range. Every analysis starts here." },
+    { q: "Is this a signal service? Do you tell me exactly what to trade?", a: "No. This is an intelligence platform. It gives you the AI score, the Alpha Node reading, the analyst consensus, and the full setup context. You make the trade decision. We are not financial advisors. Nothing here is financial advice." },
     { q: "Why no free trial?", a: "The ZeroDTE Framework is a serious methodology built over months of live trading sessions. A free trial attracts traders who aren't serious enough to use it correctly. At $200/month, we filter for traders who understand value. If the price feels steep, this platform isn't for you — and that's intentional." },
     { q: "When does the platform launch?", a: "We're currently in active development and taking waitlist signups. Waitlist members will be first to access at launch pricing. Phase 1 MVP in weeks 1-4, full platform with all intelligence features by week 16. Join the waitlist to lock in early pricing." },
   ];
@@ -238,7 +238,7 @@ export default function Home() {
     { rule: "Never trade the open flush (9:30–10:00 AM)", why: "Volume is chaotic. Wait for structure to establish. Open flush = no trade signal." },
     { rule: "Wait for candle CLOSE — never enter on a wick", why: "Wicks are traps. Closes are confirmations. One rule. Zero exceptions." },
     { rule: "Declining VWAP = no long trades. Ever.", why: "Fighting the trend destroys the position. VWAP rejection will trap you every time." },
-    { rule: "Check VIX direction before every trade", why: "VIX King Node is a required filter. Non-negotiable. VIX above its purple node = no longs." },
+    { rule: "Check VIX direction before every trade", why: "VIX Alpha Node is a required filter. Non-negotiable. VIX above its purple node = no longs." },
     { rule: "Score must be 65+ to trade, 80+ for full size", why: "Discipline over FOMO. Below threshold = no trade regardless of how obvious it looks." },
     { rule: "Trinity divergence = reduce size 50%", why: "Two markets disagreeing means chop. Protect capital. Size down or stay flat." },
     { rule: "Never hold through geopolitical headlines", why: "Whipsaw in both directions simultaneously. Exit first, assess after VIX stabilizes." },
@@ -271,7 +271,7 @@ export default function Home() {
             <div>
               <span className="zd-badge">Now accepting waitlist</span>
               <h1 className="zd-h1">Stop<br />Guessing.<br /><span className="accent">Read the Market</span><br />Like a Machine.</h1>
-              <p className="zd-hero-sub">Real-time GEX heatmap analysis, AI-scored trade setups, and King Node intelligence for serious 0DTE SPY traders.</p>
+              <p className="zd-hero-sub">Real-time GEX heatmap analysis, AI-scored trade setups, and Alpha Node intelligence for serious 0DTE SPY traders.</p>
               <div className="zd-hero-actions">
                 <a href="#" className="zd-btn-primary" onClick={e => { e.preventDefault(); scrollTo("pricing"); }}>JOIN THE WAITLIST</a>
                 <span className="zd-hero-price"><span>$200</span>/month · Serious traders only</span>
@@ -283,7 +283,7 @@ export default function Home() {
                 <span className="zd-live-dot">LIVE</span>
               </div>
               {[
-                ["KING NODE", "ABOVE PRICE ↑", "vg"],
+                ["ALPHA NODE", "ABOVE PRICE ↑", "vg"],
                 ["VIX DIRECTION", "BULLISH SPY", "vg"],
                 ["TRINITY", "ALIGNED ✓", "vw"],
                 ["VWAP", "SLOPING UP", "vg"],
@@ -312,8 +312,8 @@ export default function Home() {
       {/* TICKER */}
       <div className="zd-ticker">
         <div className="zd-ticker-content">
-          {["GEX HEATMAP ANALYSIS", "★ KING NODE INTELLIGENCE", "AI SCORING ENGINE", "TRINITY ALIGNMENT", "LIVE ANALYST FEED", "VWAP FILTER SYSTEM", "REVERSE RUG DETECTION", "0DTE SPY SIGNALS", "$200/MONTH", "SERIOUS TRADERS ONLY",
-            "GEX HEATMAP ANALYSIS", "★ KING NODE INTELLIGENCE", "AI SCORING ENGINE", "TRINITY ALIGNMENT", "LIVE ANALYST FEED", "VWAP FILTER SYSTEM", "REVERSE RUG DETECTION", "0DTE SPY SIGNALS", "$200/MONTH", "SERIOUS TRADERS ONLY"
+          {["GEX HEATMAP ANALYSIS", "★ ALPHA NODE INTELLIGENCE", "AI SCORING ENGINE", "TRINITY ALIGNMENT", "LIVE ANALYST FEED", "VWAP FILTER SYSTEM", "REVERSE RUG DETECTION", "0DTE SPY SIGNALS", "$200/MONTH", "SERIOUS TRADERS ONLY",
+            "GEX HEATMAP ANALYSIS", "★ ALPHA NODE INTELLIGENCE", "AI SCORING ENGINE", "TRINITY ALIGNMENT", "LIVE ANALYST FEED", "VWAP FILTER SYSTEM", "REVERSE RUG DETECTION", "0DTE SPY SIGNALS", "$200/MONTH", "SERIOUS TRADERS ONLY"
           ].map((t, i) => <span key={i}>{t}</span>)}
         </div>
       </div>
@@ -337,11 +337,11 @@ export default function Home() {
         <div className="zd-section-inner">
           <span className="zd-section-label">The System</span>
           <h2 className="zd-h2">Built in the<br /><em style={{ fontStyle: "italic", color: "var(--green)" }}>live market.</em></h2>
-          <p className="zd-section-sub">The ZeroDTE Framework is a systematic approach to reading GEX heatmaps, identifying King Nodes, and generating AI-scored trade setups — developed over multiple live 0DTE sessions.</p>
+          <p className="zd-section-sub">The ZeroDTE Framework is a systematic approach to reading GEX heatmaps, identifying Alpha Nodes, and generating AI-scored trade setups — developed over multiple live 0DTE sessions.</p>
           <div className="zd-steps-grid">
             {[
-              { n: "01", title: "Read the Heatmap", desc: "Identify King Node position, analyze above and below price zones, map yellow ladders vs purple ceilings. Run the 6-question checklist in under 30 seconds.", tag: "GEX ANALYSIS" },
-              { n: "02", title: "Score the Setup", desc: "The AI scorer combines King Node proximity, Trinity alignment, candlestick pattern, VIX direction, VWAP, node dollar value, time of day, and day-of-week bias into a single 0-100 score.", tag: "AI SCORING" },
+              { n: "01", title: "Read the Heatmap", desc: "Identify Alpha Node position, analyze above and below price zones, map yellow ladders vs purple ceilings. Run the 6-question checklist in under 30 seconds.", tag: "GEX ANALYSIS" },
+              { n: "02", title: "Score the Setup", desc: "The AI scorer combines Alpha Node proximity, Trinity alignment, candlestick pattern, VIX direction, VWAP, node dollar value, time of day, and day-of-week bias into a single 0-100 score.", tag: "AI SCORING" },
               { n: "03", title: "Execute the Trade", desc: "65+ score = trade eligible. 80+ = full size. Strike selection, stop placement, and target nodes are all defined before you enter. No guessing, no hope trades.", tag: "TRADE EXECUTION" },
             ].map(s => (
               <div key={s.n} className="zd-step">
@@ -362,9 +362,9 @@ export default function Home() {
         <p className="zd-section-sub">Built around the exact framework used in live sessions. No filler. No fluff. Just the edge.</p>
         <div className="zd-features-grid">
           {[
-            { icon: "⬛", title: "GEX Heatmap Intelligence", desc: "Live gamma exposure visualization across SPX, SPY, QQQ, and VIX. Color-coded by node strength — from King Node yellow to gamma wall purple.", bullets: ["Real-time King Node identification with distance % indicator", "Color-coded gamma zones: yellow / green / teal / purple", "Node dollar value display ($100K+ = major level)", "Pillow node detection below price", "Air pocket identification for acceleration zones"] },
-            { icon: "★", title: "AI Trade Scoring Engine", desc: "Nine-factor scoring algorithm that produces a 0-100 trade confidence score. 65+ to trade. 80+ for full size. No exceptions.", bullets: ["King Node proximity & direction (20% weight)", "Trinity alignment across SPX/SPY/QQQ (15%)", "Candlestick pattern recognition (15%)", "VIX / VIX1D directional filter (15%)", "VWAP slope — declining VWAP blocks all long trades", "Time of day and day-of-week bias adjustments"] },
-            { icon: "◈", title: "Candlestick Pattern Library", desc: "Automatic pattern detection on 5-minute SPY chart. Every signal tied to a specific action — no interpretation required.", bullets: ["Hammer & Inverted Hammer at King Nodes", "Bullish / Bearish Engulfing at support/resistance", "Shooting Star at purple ceilings", "Morning Star & Evening Star reversals", "Three White Soldiers & Three Black Crows", "Candle CLOSE rule enforced — no wick traps"] },
+            { icon: "⬛", title: "GEX Heatmap Intelligence", desc: "Live gamma exposure visualization across SPX, SPY, QQQ, and VIX. Color-coded by node strength — from Alpha Node yellow to gamma wall purple.", bullets: ["Real-time Alpha Node identification with distance % indicator", "Color-coded gamma zones: yellow / green / teal / purple", "Node dollar value display ($100K+ = major level)", "Pillow node detection below price", "Air pocket identification for acceleration zones"] },
+            { icon: "★", title: "AI Trade Scoring Engine", desc: "Nine-factor scoring algorithm that produces a 0-100 trade confidence score. 65+ to trade. 80+ for full size. No exceptions.", bullets: ["Alpha Node proximity & direction (20% weight)", "Trinity alignment across SPX/SPY/QQQ (15%)", "Candlestick pattern recognition (15%)", "VIX / VIX1D directional filter (15%)", "VWAP slope — declining VWAP blocks all long trades", "Time of day and day-of-week bias adjustments"] },
+            { icon: "◈", title: "Candlestick Pattern Library", desc: "Automatic pattern detection on 5-minute SPY chart. Every signal tied to a specific action — no interpretation required.", bullets: ["Hammer & Inverted Hammer at Alpha Nodes", "Bullish / Bearish Engulfing at support/resistance", "Shooting Star at purple ceilings", "Morning Star & Evening Star reversals", "Three White Soldiers & Three Black Crows", "Candle CLOSE rule enforced — no wick traps"] },
             { icon: "◎", title: "Multi-Analyst Consensus Engine", desc: "Live monitoring of Lead Analyst, Risk Analyst, Level Analyst, and Short Analyst. The consensus engine reads signals and flags agreement, caution, or conflict in real time.", bullets: ["All analysts agree = HIGHEST CONVICTION (+full score)", "\"Values not big enough\" auto-reduces score 15 points", "Lead Analyst vs Risk Analyst conflict = FLAG, no trade recommendation", "\"Targeting [direction] nodes\" = high conviction signal", "Reverse rug phase detection (Phase 1–6)"] },
           ].map(f => (
             <div key={f.title} className="zd-feature">
@@ -382,7 +382,7 @@ export default function Home() {
         <div className="zd-section-inner">
           <span className="zd-section-label">Trinity System</span>
           <h2 className="zd-h2">Three instruments.<br />One direction.</h2>
-          <p className="zd-section-sub">The highest conviction trades require SPX, SPY, and QQQ King Nodes all pointing the same way. When they diverge, size down or stay flat.</p>
+          <p className="zd-section-sub">The highest conviction trades require SPX, SPY, and QQQ Alpha Nodes all pointing the same way. When they diverge, size down or stay flat.</p>
           <div className="zd-trinity-layout">
             <div>
               <table className="zd-trinity-table">
@@ -400,10 +400,10 @@ export default function Home() {
                 </tbody>
               </table>
               <div className="border-l-green mt-5">
-                <div className="text-xs text-green" style={{ marginBottom: 10 }}>VIX KING NODE RULE</div>
+                <div className="text-xs text-green" style={{ marginBottom: 10 }}>VIX ALPHA NODE RULE</div>
                 <div className="text-sm" style={{ lineHeight: 1.8, fontStyle: "italic" }}>
-                  VIX King Node <strong className="text-white">above</strong> VIX price = fear rising = SPY <strong className="text-red">bearish</strong>.<br />
-                  VIX King Node <strong className="text-white">below</strong> VIX price = fear falling = SPY <strong className="text-green">bullish</strong>.<br />
+                  VIX Alpha Node <strong className="text-white">above</strong> VIX price = fear rising = SPY <strong className="text-red">bearish</strong>.<br />
+                  VIX Alpha Node <strong className="text-white">below</strong> VIX price = fear falling = SPY <strong className="text-green">bullish</strong>.<br />
                   Always check VIX before every trade. Non-negotiable.
                 </div>
               </div>
@@ -411,11 +411,11 @@ export default function Home() {
             <div className="zd-heatmap-card">
               <div className="zd-readout-label" style={{ marginBottom: 20 }}>HEATMAP VISUALIZATION</div>
               <div className="zd-heatmap">
-                {[["$592","hm-pd",90,"GAMMA WALL"],["$591","hm-pl",54,""],["$590","hm-y",160,"★ KING NODE"]].map(([p,c,w,label]) => (
+                {[["$592","hm-pd",90,"GAMMA WALL"],["$591","hm-pl",54,""],["$590","hm-y",160,"★ ALPHA NODE"]].map(([p,c,w,label]) => (
                   <div key={p as string} className="zd-hm-row">
                     <span className="zd-hm-price">{p}</span>
                     <div className={`zd-hm-bar ${c}`} style={{ width: w as number }} />
-                    {label === "★ KING NODE" && <span className="zd-king-star">★</span>}
+                    {label === "★ ALPHA NODE" && <span className="zd-king-star">★</span>}
                     {label && <span style={{ fontSize: 10, color: c === "hm-y" ? "#ffdd00" : "var(--muted)", fontWeight: c === "hm-y" ? 700 : 400 }}>{label}</span>}
                   </div>
                 ))}
@@ -434,7 +434,7 @@ export default function Home() {
                 ))}
               </div>
               <div className="border-green p-box text-sm" style={{ lineHeight: 1.7 }}>
-                King Node at $590 is <strong className="text-green">ABOVE current price</strong> = bullish bias. Pillow nodes at $587-588 create soft floor. Purple gamma wall at $592 is the ceiling. This is a <strong className="text-green">bullish range setup</strong>.
+                Alpha Node at $590 is <strong className="text-green">ABOVE current price</strong> = bullish bias. Pillow nodes at $587-588 create soft floor. Purple gamma wall at $592 is the ceiling. This is a <strong className="text-green">bullish range setup</strong>.
               </div>
             </div>
           </div>
@@ -547,7 +547,7 @@ export default function Home() {
               <div className="zd-price">$200</div>
               <span className="zd-price-period">/month · No trials. No refunds.</span>
               <ul className="zd-price-features">
-                {["Live GEX heatmap — SPX, SPY, QQQ, VIX", "Real-time King Node identification", "AI trade score (0-100) per setup", "Candlestick pattern recognition", "Multi-analyst consensus engine", "VWAP overlay + declining VWAP filter", "VIX1D dashboard", "Reverse rug detection system", "Daily session summary + trade log", "Full ZeroDTE Framework documentation"].map(f => <li key={f}>{f}</li>)}
+                {["Live GEX heatmap — SPX, SPY, QQQ, VIX", "Real-time Alpha Node identification", "AI trade score (0-100) per setup", "Candlestick pattern recognition", "Multi-analyst consensus engine", "VWAP overlay + declining VWAP filter", "VIX1D dashboard", "Reverse rug detection system", "Daily session summary + trade log", "Full ZeroDTE Framework documentation"].map(f => <li key={f}>{f}</li>)}
               </ul>
               <div className="zd-waitlist-form">
                 <input
@@ -587,7 +587,7 @@ export default function Home() {
       {/* CTA */}
       <div className="zd-cta">
         <h2 className="zd-h2">Stop guessing.<br />Read the market like a machine.</h2>
-        <p>Real-time GEX heatmap · AI scoring · King Node intelligence · $200/month</p>
+        <p>Real-time GEX heatmap · AI scoring · Alpha Node intelligence · $200/month</p>
         <a href="#" className="zd-btn-dark" onClick={e => { e.preventDefault(); scrollTo("pricing"); }}>JOIN THE WAITLIST</a>
         <div style={{ marginTop: 16, fontSize: 11, color: "rgba(0,0,0,0.5)", letterSpacing: "0.1em" }}>
           Serious traders only · No free tier · Launch pricing locked for waitlist
@@ -603,7 +603,7 @@ export default function Home() {
           </div>
           {[
             { h: "Platform", links: [["System", "how-it-works"], ["Features", "features"], ["Trinity", "trinity"], ["Analysts", "analysts"]] },
-            { h: "Framework", links: [["GEX Explained", ""], ["King Node Rules", ""], ["AI Scoring System", ""], ["10 Commandments", ""]] },
+            { h: "Framework", links: [["GEX Explained", ""], ["Alpha Node Rules", ""], ["AI Scoring System", ""], ["10 Commandments", ""]] },
             { h: "Account", links: [["Join Waitlist", "pricing"], ["Dashboard", "/dashboard"], ["Privacy Policy", ""], ["Terms of Service", ""]] },
           ].map(col => (
             <div key={col.h} className="zd-footer-col">
