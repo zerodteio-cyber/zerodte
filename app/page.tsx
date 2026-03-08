@@ -260,6 +260,7 @@ export default function Home() {
           <li><a href="#" onClick={e => { e.preventDefault(); scrollTo("trinity"); }}>Trinity</a></li>
           <li><a href="#" onClick={e => { e.preventDefault(); scrollTo("pricing"); }}>Pricing</a></li>
           <li><a href="#" className="nav-cta zd-nav-cta" onClick={e => { e.preventDefault(); scrollTo("pricing"); }}>JOIN WAITLIST</a></li>
+              <li><a href="/login" style={{fontSize:"10px",letterSpacing:"0.2em",color:"#aaa",textDecoration:"none",textTransform:"uppercase"}}>LOGIN</a></li>
         </ul>
       </nav>
 
