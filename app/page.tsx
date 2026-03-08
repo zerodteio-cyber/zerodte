@@ -1,4 +1,5 @@
 "use client";
+import { EconCalendar } from "@/app/components/EconCalendar";
 import { useState } from "react";
 
 const css = `
@@ -527,7 +528,12 @@ export default function Home() {
         </div>
       </div>
 
-      {/* PRICING */}
+      {/* MARKET INTELLIGENCE */}
+        <section style={{background:"#0a0a0a",borderTop:"1px solid #1f1f1f",borderBottom:"1px solid #1f1f1f"}}>
+          <EconCalendar mode="full" />
+        </section>
+
+        {/* PRICING */}
       <div id="pricing" className="bg-dark zd-section-full">
         <div className="zd-section-inner">
           <span className="zd-section-label">Pricing</span>

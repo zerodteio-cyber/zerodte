@@ -1,4 +1,5 @@
 "use client";
+import { EconCalendar } from "@/app/components/EconCalendar";
 import { useState, useEffect, useRef } from "react";
 
 const defaultLevels = { kingNode: 590, callWall: 595, putWall: 585, hvl: 588 };
@@ -195,6 +196,7 @@ export default function Dashboard() {
           <span style={{ color: "#444", fontSize: "11px", letterSpacing: "2px" }}>COMMAND CENTER</span>
         </div>
       </nav>
+      <EconCalendar mode="widget" />
 
       <div style={{ maxWidth: 1000, margin: "0 auto", padding: "32px 40px" }}>
 

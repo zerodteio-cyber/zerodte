@@ -1,5 +1,6 @@
 // @ts-nocheck
 "use client";
+import { EconCalendar } from "@/app/components/EconCalendar";
 import { useState } from "react";
 
 // ─── PATTERN LIBRARY ──────────────────────────────────────────────────────
@@ -399,6 +400,7 @@ export default function ScorerPage() {
 
         {/* ── LEFT: INPUTS ── */}
         <div className="left">
+        <EconCalendar mode="compact" />
           <div>
             <span className="chip"><span className="dot"/>Pattern Intelligence Engine · Dual Scan</span>
             <h1>Both Sides.<br/>Best Edge Wins.</h1>
