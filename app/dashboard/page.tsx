@@ -196,7 +196,7 @@ export default function Dashboard() {
           <span style={{ color: "#444", fontSize: "11px", letterSpacing: "2px" }}>COMMAND CENTER</span>
         </div>
       </nav>
-      <EconCalendar mode="widget" />
+      <EconCalendar mode="compact" />
 
       <div style={{ maxWidth: 1000, margin: "0 auto", padding: "32px 40px" }}>
 

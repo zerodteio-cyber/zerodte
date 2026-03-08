@@ -528,10 +528,40 @@ export default function Home() {
         </div>
       </div>
 
-      {/* MARKET INTELLIGENCE */}
-        <section style={{background:"#0a0a0a",borderTop:"1px solid #1f1f1f",borderBottom:"1px solid #1f1f1f"}}>
-          <EconCalendar mode="full" />
-        </section>
+      {/* MARKET INTELLIGENCE TEASER */}
+        <div style={{background:"#0a0a0a",borderTop:"1px solid #1f1f1f",borderBottom:"1px solid #1f1f1f",padding:"80px 48px"}}>
+          <div style={{maxWidth:1200,margin:"0 auto"}}>
+            <span style={{fontSize:10,letterSpacing:".3em",color:"#00ff41",textTransform:"uppercase",marginBottom:20,display:"block",fontFamily:"'Space Mono',monospace"}}>MARKET INTELLIGENCE</span>
+            <h2 style={{fontFamily:"'Playfair Display',serif",fontSize:"clamp(32px,4vw,52px)",fontWeight:900,color:"#fff",lineHeight:1.05,marginBottom:16}}>
+              Know what&apos;s moving<br/>the market <em style={{color:"#00ff41"}}>before open.</em>
+            </h2>
+            <p style={{fontSize:13,color:"#555",lineHeight:1.8,maxWidth:540,marginBottom:56,fontStyle:"italic",fontFamily:"'Space Mono',monospace"}}>
+              ZeroDTE tracks every major economic release and breaking market headline in real time — GDP, CPI, FOMC, NFP — and factors the data directly into the AI trade score. Good data favors calls. Bad data favors puts. Paid members see the live feed on their dashboard.
+            </p>
+            <div style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:1,background:"#1f1f1f",marginBottom:40,fontFamily:"'Space Mono',monospace"}}>
+              {[
+                {icon:"🔴",title:"Bearish Data = Puts Edge",sub:"GDP miss · CPI hot · Fed hike · NFP weak",desc:"Bad economic data adds +10 to +15 pts to PUTS and penalizes calls. Strong catalyst can block call recommendations entirely."},
+                {icon:"🟢",title:"Bullish Data = Calls Edge",sub:"GDP beat · CPI cool · Fed cut · Retail beat",desc:"Good data adds +10 to +15 pts to CALLS. A strong catalyst at the open can partially override the no-trade-before-10AM rule."},
+                {icon:"⚠️",title:"Event Pending = Reduce Size",sub:"FOMC day · Pre-announcement",desc:"Major event pending auto-applies -10 pts and a warning to cut size 50%. Wait for the print, then score the direction."},
+              ].map((card,i) => (
+                <div key={i} style={{background:"#111",padding:"32px 28px"}}>
+                  <div style={{fontSize:24,marginBottom:12}}>{card.icon}</div>
+                  <div style={{fontSize:12,color:"#fff",fontWeight:700,marginBottom:6}}>{card.title}</div>
+                  <div style={{fontSize:9,color:"#00ff41",letterSpacing:".1em",marginBottom:10}}>{card.sub}</div>
+                  <div style={{fontSize:11,color:"#555",lineHeight:1.7,fontStyle:"italic"}}>{card.desc}</div>
+                </div>
+              ))}
+            </div>
+            <div style={{display:"flex",alignItems:"center",gap:24,flexWrap:"wrap" as const}}>
+              <div style={{fontSize:11,color:"#444",fontFamily:"'Space Mono',monospace",letterSpacing:".1em"}}>
+                📅 CPI · NFP · FOMC · GDP · PCE · PPI · Retail Sales
+              </div>
+              <div style={{fontSize:10,color:"#00ff41",fontFamily:"'Space Mono',monospace",letterSpacing:".15em",padding:"6px 16px",border:"1px solid rgba(0,255,65,.3)"}}>
+                LIVE FEED AVAILABLE TO PAID MEMBERS →
+              </div>
+            </div>
+          </div>
+        </div>
 
         {/* PRICING */}
       <div id="pricing" className="bg-dark zd-section-full">
