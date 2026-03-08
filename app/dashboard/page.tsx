@@ -164,6 +164,8 @@ export default function Dashboard() {
   const [candles, setCandles] = useState<Candle[]>([]);
   const [lastUpdate, setLastUpdate] = useState("--");
   const [loading, setLoading] = useState(true);
+  const [quant, setQuant] = useState<any>(null);
+  const [quantLoading, setQuantLoading] = useState(true);
 
   async function fetchAll() {
     try {
