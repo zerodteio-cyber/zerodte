@@ -230,7 +230,7 @@ export default function Home() {
     { q: "What exactly is a GEX heatmap?", a: "GEX = Gamma Exposure. It's calculated as Gamma × Open Interest × 100 × Spot Price, giving the dollar amount of hedging dealers must perform at each strike price. Positive GEX (yellow/green) means dealers buy the dip — creating support. Negative GEX (purple) means dealers sell into weakness — creating acceleration zones." },
     { q: "What is the King Node?", a: "The King Node (★) is the single largest gamma position in the entire heatmap — the most powerful gravitational force on price for that day. King Node above price = bullish bias. King Node below price = bearish bias. King Node at price = pinned range. Every analysis starts here." },
     { q: "Is this a signal service? Do you tell me exactly what to trade?", a: "No. This is an intelligence platform. It gives you the AI score, the King Node reading, the analyst consensus, and the full setup context. You make the trade decision. We are not financial advisors. Nothing here is financial advice." },
-    { q: "Why no free trial?", a: "The Skylit Framework is a serious methodology built over months of live trading sessions. A free trial attracts traders who aren't serious enough to use it correctly. At $200/month, we filter for traders who understand value. If the price feels steep, this platform isn't for you — and that's intentional." },
+    { q: "Why no free trial?", a: "The ZeroDTE Framework is a serious methodology built over months of live trading sessions. A free trial attracts traders who aren't serious enough to use it correctly. At $200/month, we filter for traders who understand value. If the price feels steep, this platform isn't for you — and that's intentional." },
     { q: "When does the platform launch?", a: "We're currently in active development and taking waitlist signups. Waitlist members will be first to access at launch pricing. Phase 1 MVP in weeks 1-4, full platform with all intelligence features by week 16. Join the waitlist to lock in early pricing." },
   ];
 
@@ -243,7 +243,7 @@ export default function Home() {
     { rule: "Trinity divergence = reduce size 50%", why: "Two markets disagreeing means chop. Protect capital. Size down or stay flat." },
     { rule: "Never hold through geopolitical headlines", why: "Whipsaw in both directions simultaneously. Exit first, assess after VIX stabilizes." },
     { rule: "3:45 PM hard exit — no exceptions", why: "Final 15 minutes is a danger zone. Always flat by 3:45. No hope trades." },
-    { rule: "Cross-reference Bobby with Giul before entering", why: "Bobby called long while Giul said caution on 3/5/26. Conflict = no trade. Always." },
+    { rule: "Cross-reference Lead Analyst with Risk Analyst before entering", why: "Lead Analyst called long while Risk Analyst said caution on 3/5/26. Conflict = no trade. Always." },
     { rule: "Staying flat IS a trade", why: "Protecting capital on low-conviction days is the highest skill. Cash is a position." },
   ];
 
@@ -337,7 +337,7 @@ export default function Home() {
         <div className="zd-section-inner">
           <span className="zd-section-label">The System</span>
           <h2 className="zd-h2">Built in the<br /><em style={{ fontStyle: "italic", color: "var(--green)" }}>live market.</em></h2>
-          <p className="zd-section-sub">The Skylit Framework is a systematic approach to reading GEX heatmaps, identifying King Nodes, and generating AI-scored trade setups — developed over multiple live 0DTE sessions.</p>
+          <p className="zd-section-sub">The ZeroDTE Framework is a systematic approach to reading GEX heatmaps, identifying King Nodes, and generating AI-scored trade setups — developed over multiple live 0DTE sessions.</p>
           <div className="zd-steps-grid">
             {[
               { n: "01", title: "Read the Heatmap", desc: "Identify King Node position, analyze above and below price zones, map yellow ladders vs purple ceilings. Run the 6-question checklist in under 30 seconds.", tag: "GEX ANALYSIS" },
@@ -365,7 +365,7 @@ export default function Home() {
             { icon: "⬛", title: "GEX Heatmap Intelligence", desc: "Live gamma exposure visualization across SPX, SPY, QQQ, and VIX. Color-coded by node strength — from King Node yellow to gamma wall purple.", bullets: ["Real-time King Node identification with distance % indicator", "Color-coded gamma zones: yellow / green / teal / purple", "Node dollar value display ($100K+ = major level)", "Pillow node detection below price", "Air pocket identification for acceleration zones"] },
             { icon: "★", title: "AI Trade Scoring Engine", desc: "Nine-factor scoring algorithm that produces a 0-100 trade confidence score. 65+ to trade. 80+ for full size. No exceptions.", bullets: ["King Node proximity & direction (20% weight)", "Trinity alignment across SPX/SPY/QQQ (15%)", "Candlestick pattern recognition (15%)", "VIX / VIX1D directional filter (15%)", "VWAP slope — declining VWAP blocks all long trades", "Time of day and day-of-week bias adjustments"] },
             { icon: "◈", title: "Candlestick Pattern Library", desc: "Automatic pattern detection on 5-minute SPY chart. Every signal tied to a specific action — no interpretation required.", bullets: ["Hammer & Inverted Hammer at King Nodes", "Bullish / Bearish Engulfing at support/resistance", "Shooting Star at purple ceilings", "Morning Star & Evening Star reversals", "Three White Soldiers & Three Black Crows", "Candle CLOSE rule enforced — no wick traps"] },
-            { icon: "◎", title: "Multi-Analyst Consensus Engine", desc: "Live monitoring of Bobby, Giul, Glitch, and Prophitcy. The consensus engine reads signals and flags agreement, caution, or conflict in real time.", bullets: ["All analysts agree = HIGHEST CONVICTION (+full score)", "\"Values not big enough\" auto-reduces score 15 points", "Bobby vs Giul conflict = FLAG, no trade recommendation", "\"Targeting [direction] nodes\" = high conviction signal", "Reverse rug phase detection (Phase 1–6)"] },
+            { icon: "◎", title: "Multi-Analyst Consensus Engine", desc: "Live monitoring of Lead Analyst, Risk Analyst, Level Analyst, and Short Analyst. The consensus engine reads signals and flags agreement, caution, or conflict in real time.", bullets: ["All analysts agree = HIGHEST CONVICTION (+full score)", "\"Values not big enough\" auto-reduces score 15 points", "Lead Analyst vs Risk Analyst conflict = FLAG, no trade recommendation", "\"Targeting [direction] nodes\" = high conviction signal", "Reverse rug phase detection (Phase 1–6)"] },
           ].map(f => (
             <div key={f.title} className="zd-feature">
               <span className="zd-feature-icon">{f.icon}</span>
@@ -470,12 +470,12 @@ export default function Home() {
             <div className="text-xs text-green" style={{ marginBottom: 20 }}>TIMELINE</div>
             {[
               { t: "9:30 AM", e: <><strong>Open flush to 676.</strong> Massive volume. Framework rule: <span className="er">DO NOT BUY open flushes.</span> Retail traders trapped.</> },
-              { t: "9:45 AM", e: <><strong>Bounce to 684 — Reverse Rug #1.</strong> Bobby: <em>&ldquo;Values not big enough.&rdquo;</em> <span className="eg">Framework: AVOID. Score below threshold.</span></> },
+              { t: "9:45 AM", e: <><strong>Bounce to 684 — Reverse Rug #1.</strong> Lead Analyst: <em>&ldquo;Values not big enough.&rdquo;</em> <span className="eg">Framework: AVOID. Score below threshold.</span></> },
               { t: "10:22 AM", e: <><strong>UAE missile headline.</strong> <span className="er">Geopolitical override activated.</span> VIX breaks 22 purple node. All analysis suspended.</> },
-              { t: "11:11 AM", e: <>Giul: <em>&ldquo;Lots of downside growing.&rdquo;</em> Air pocket below 678 identified. <span className="er">Bobby/Giul conflict = no trade.</span></> },
-              { t: "11:22 AM", e: <><strong>Bobby calls Reverse Rug #2.</strong> 45-min base built. Declining volume confirmed. <span className="eg">Calls at 680. Score: 78/100.</span></> },
+              { t: "11:11 AM", e: <>Risk Analyst: <em>&ldquo;Lots of downside growing.&rdquo;</em> Air pocket below 678 identified. <span className="er">Lead Analyst/Risk Analyst conflict = no trade.</span></> },
+              { t: "11:22 AM", e: <><strong>Lead Analyst calls Reverse Rug #2.</strong> 45-min base built. Declining volume confirmed. <span className="eg">Calls at 680. Score: 78/100.</span></> },
               { t: "12:35 PM", e: <><strong>VWAP rejection.</strong> Price crashes 683→677. <span className="er">VWAP filter would have blocked this entry.</span> Critical lesson added.</> },
-              { t: "2:26 PM", e: <><strong>Reverse Rug #3.</strong> Bobby: <em>&ldquo;Pillow nodes under SPY.&rdquo;</em> $505K node at 679. <span className="eg">Calls from 676. SPX +$40 by 3:26 PM. Score: 91/100.</span></> },
+              { t: "2:26 PM", e: <><strong>Reverse Rug #3.</strong> Lead Analyst: <em>&ldquo;Pillow nodes under SPY.&rdquo;</em> $505K node at 679. <span className="eg">Calls from 676. SPX +$40 by 3:26 PM. Score: 91/100.</span></> },
               { t: "3:45 PM", e: <><strong>Hard exit.</strong> All positions closed. Framework rule: <em>No exceptions. No hope trades.</em> Day closed profitable.</> },
             ].map(ev => (
               <div key={ev.t} className="zd-event">
@@ -508,13 +508,13 @@ export default function Home() {
       <div id="analysts" className="zd-section">
         <span className="zd-section-label">Analyst Intelligence</span>
         <h2 className="zd-h2">Four voices.<br />One consensus.</h2>
-        <p className="zd-section-sub">The platform monitors Bobby, Giul, Glitch, and Prophitcy in real time. Agreement means full size. Conflict means stay flat.</p>
+        <p className="zd-section-sub">The platform monitors Lead Analyst, Risk Analyst, Level Analyst, and Short Analyst in real time. Agreement means full size. Conflict means stay flat.</p>
         <div className="zd-analysts-grid">
           {[
-            { handle: "@FlowbyBobby", name: "Bobby", desc: "Full Trinity analysis, reverse rug calls, educational posts at key moments. Posts when the setup is live — not before.", primary: true },
-            { handle: "@SimplyODTE", name: "Giul", desc: "Detailed heatmap reads, cautious approach. Often more accurate than Bobby on risk. Always cross-reference before entry.", primary: true },
-            { handle: "@Glitch_Trades", name: "Glitch", desc: "SPY pika levels and short-term entries. Secondary signal used to confirm primary analyst consensus.", primary: false },
-            { handle: "@Prophitcy", name: "Prophitcy", desc: "Precise short entries, level calls. Called 6840 short perfectly on 3/5/26. Added to monitoring after that session.", primary: false },
+            { handle: "@LeadAnalyst", name: "Lead Analyst", desc: "Full Trinity analysis, reverse rug calls, educational posts at key moments. Posts when the setup is live — not before.", primary: true },
+            { handle: "@RiskAnalyst", name: "Risk Analyst", desc: "Detailed heatmap reads, cautious approach. Often more accurate than Lead Analyst on risk. Always cross-reference before entry.", primary: true },
+            { handle: "@LevelAnalyst", name: "Level Analyst", desc: "SPY pika levels and short-term entries. Secondary signal used to confirm primary analyst consensus.", primary: false },
+            { handle: "@ShortAnalyst", name: "Short Analyst", desc: "Precise short entries, level calls. Called 6840 short perfectly on 3/5/26. Added to monitoring after that session.", primary: false },
           ].map(a => (
             <div key={a.name} className="zd-analyst">
               <div className="zd-analyst-handle">{a.handle}</div>
@@ -547,7 +547,7 @@ export default function Home() {
               <div className="zd-price">$200</div>
               <span className="zd-price-period">/month · No trials. No refunds.</span>
               <ul className="zd-price-features">
-                {["Live GEX heatmap — SPX, SPY, QQQ, VIX", "Real-time King Node identification", "AI trade score (0-100) per setup", "Candlestick pattern recognition", "Multi-analyst consensus engine", "VWAP overlay + declining VWAP filter", "VIX1D dashboard", "Reverse rug detection system", "Daily session summary + trade log", "Full Skylit Framework documentation"].map(f => <li key={f}>{f}</li>)}
+                {["Live GEX heatmap — SPX, SPY, QQQ, VIX", "Real-time King Node identification", "AI trade score (0-100) per setup", "Candlestick pattern recognition", "Multi-analyst consensus engine", "VWAP overlay + declining VWAP filter", "VIX1D dashboard", "Reverse rug detection system", "Daily session summary + trade log", "Full ZeroDTE Framework documentation"].map(f => <li key={f}>{f}</li>)}
               </ul>
               <div className="zd-waitlist-form">
                 <input
@@ -599,7 +599,7 @@ export default function Home() {
         <div className="zd-footer-grid">
           <div>
             <a href="#" className="zd-logo" style={{ display: "block", marginBottom: 16 }}>ZERODTE.IO</a>
-            <p style={{ fontSize: 11, color: "var(--muted)", lineHeight: 1.8, fontStyle: "italic", maxWidth: 240 }}>The Skylit Framework. Built in the live market. Tested in real time. March 2026.</p>
+            <p style={{ fontSize: 11, color: "var(--muted)", lineHeight: 1.8, fontStyle: "italic", maxWidth: 240 }}>The ZeroDTE Framework. Built in the live market. Tested in real time. March 2026.</p>
           </div>
           {[
             { h: "Platform", links: [["System", "how-it-works"], ["Features", "features"], ["Trinity", "trinity"], ["Analysts", "analysts"]] },
